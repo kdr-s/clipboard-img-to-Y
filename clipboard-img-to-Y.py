@@ -17,12 +17,13 @@ def isPressed(key):
 while True:
     im = ImageGrab.grabclipboard()
     if isinstance(im, Image.Image):
-        # ２つの画像の同一の場合ImageChops.differenceはすべて0の画像を返す
+        im = im.convert('RGB')
+        # ２つの画像の同一かどうか
         if ImageChops.difference(im, last_im).getbbox() != None:
             # クリップボードにあるRGB画像を保存したい場合は、以下のコメントを解除します
             # im.save(folder + datetime.now().strftime("%Y%m%d-%H%M%S") + ".png")
             # 保存機能を使う場合、以下もコメントを解除します。同じ画像を保存することを防ぎます。
-            # last_im = im
+            last_im = im
             if isPressed(Ctrl):
                 # lumi_im = im.convert("L")
                 array = np.asarray(im, dtype='float')
