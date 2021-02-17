@@ -21,8 +21,8 @@ while True:
         if ImageChops.difference(im, last_im).getbbox() != None:
             # クリップボードにあるRGB画像を保存したい場合は、以下のコメントを解除します
             # im.save(folder + datetime.now().strftime("%Y%m%d-%H%M%S") + ".png")
-            last_im = im
-            # 輝度情報を返すか？
+            # 保存機能を使う場合、以下もコメントを解除します。同じ画像を保存することを防ぎます。
+            # last_im = im
             if isPressed(Ctrl):
                 # lumi_im = im.convert("L")
                 array = np.asarray(im, dtype='float')
@@ -33,8 +33,4 @@ while True:
                 array = np.round(array).astype('uint8')
                 lumi_im = Image.fromarray(array)
                 lumi_im.show()
-        # else:
-            # print("same image")
-    # else:
-        # print('no image')
     sleep(1)
