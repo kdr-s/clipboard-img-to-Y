@@ -1,7 +1,10 @@
 # clipboard-img-to-Y
+
 クリップボードにあるsRGB画像を輝度情報を持つグレースケール画像に変換します。
 変換したいときはクリップボードに画像がある状態でCtrlキーを押します。
 
 ## 変換式
-ガンマ解除したRGBに対して以下の変換式を適用し輝度成分を
+
+ガンマ解除したRGBに対して以下の変換式を適用し輝度成分を取り出しています。
+
 <img src="https://latex.codecogs.com/gif.latex?Y=R*0.2126&space;&plus;&space;G*0.7152&space;&plus;&space;B*0.0722" title="Y=R*0.2126 + G*0.7152 + B*0.0722" />
